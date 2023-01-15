@@ -1,0 +1,814 @@
+-- instances:
+
+local synapsexreal = instance.new("screengui")
+local mainframe = instance.new("frame")
+local bar = instance.new("frame")
+local close = instance.new("textbutton")
+local imagelabel = instance.new("imagelabel")
+local security = instance.new("textlabel")
+local editorframe = instance.new("scrollingframe")
+local source = instance.new("textbox")
+local comments_ = instance.new("textlabel")
+local globals_ = instance.new("textlabel")
+local keywords_ = instance.new("textlabel")
+local remotehighlight_ = instance.new("textlabel")
+local strings_ = instance.new("textlabel")
+local tokens_ = instance.new("textlabel")
+local numbers_ = instance.new("textlabel")
+local lines = instance.new("textlabel")
+local title = instance.new("textlabel")
+local list = instance.new("frame")
+local execute = instance.new("textbutton")
+local clear = instance.new("textbutton")
+local scripthub = instance.new("textbutton")
+local attach = instance.new("textbutton")
+local title_2 = instance.new("imagelabel")
+local scripthub_2 = instance.new("frame")
+local bar_2 = instance.new("frame")
+local select = instance.new("frame")
+local dex = instance.new("textbutton")
+local esp = instance.new("textbutton")
+local spy = instance.new("textbutton")
+local dumper = instance.new("textbutton")
+local desc = instance.new("frame")
+local descri = instance.new("textlabel")
+local title_3 = instance.new("textlabel")
+local execute_2 = instance.new("textbutton")
+local close = instance.new("textbutton")
+local title_4 = instance.new("imagelabel")
+
+local scriptselected = "none"
+local injected = false
+
+--properties:
+
+synapsexreal.name = "synapse x (real)"
+synapsexreal.parent = game.coregui
+synapsexreal.resetonspawn = false
+
+mainframe.name = "mainframe"
+mainframe.parent = synapsexreal
+mainframe.active = true
+mainframe.backgroundcolor3 = color3.fromrgb(45, 45, 45)
+mainframe.bordersizepixel = 0
+mainframe.position = udim2.new(0.0543109924, 0, 0.103222892, 0)
+mainframe.size = udim2.new(0, 689, 0, 320)
+
+bar.name = "bar"
+bar.parent = mainframe
+bar.backgroundcolor3 = color3.fromrgb(94, 94, 94)
+bar.backgroundtransparency = 0.800
+bar.bordersizepixel = 0
+bar.position = udim2.new(-0, 0, -0.00296382909, 0)
+bar.size = udim2.new(0, 689, 0, 25)
+
+close.name = "close"
+close.parent = bar
+close.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+close.backgroundtransparency = 1.000
+close.bordercolor3 = color3.fromrgb(27, 42, 53)
+close.bordersizepixel = 0
+close.position = udim2.new(0.969521046, 0, 0, 0)
+close.size = udim2.new(0, 21, 0, 25)
+close.font = enum.font.arial
+close.text = "x"
+close.textcolor3 = color3.fromrgb(255, 255, 255)
+close.textsize = 14.000
+close.mousebutton1click:connect(function()
+    synapsexreal:destroy()
+end)
+
+imagelabel.parent = mainframe
+imagelabel.backgroundcolor3 = color3.fromrgb(47, 47, 47)
+imagelabel.bordersizepixel = 0
+imagelabel.position = udim2.new(0.0252733715, 0, 0.015625, 27)
+imagelabel.size = udim2.new(0, 541, 0, 246)
+
+security.name = "security"
+security.parent = imagelabel
+security.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+security.size = udim2.new(0, 552, 0, 258)
+security.visible = false
+security.font = enum.font.sourcesans
+security.textcolor3 = color3.fromrgb(0, 0, 0)
+security.textsize = 14.000
+
+editorframe.name = "editorframe"
+editorframe.parent = imagelabel
+editorframe.backgroundcolor3 = color3.fromrgb(37, 37, 37)
+editorframe.backgroundtransparency = 1.000
+editorframe.bordercolor3 = color3.fromrgb(61, 61, 61)
+editorframe.size = udim2.new(1, 0, 1, 0)
+editorframe.zindex = 3
+editorframe.bottomimage = "rbxassetid://148970562"
+editorframe.canvassize = udim2.new(0, 0, 0, 0)
+editorframe.horizontalscrollbarinset = enum.scrollbarinset.scrollbar
+editorframe.midimage = "rbxassetid://148970562"
+editorframe.scrollbarthickness = 5
+editorframe.topimage = "rbxassetid://148970562"
+
+source.name = "source"
+source.parent = editorframe
+source.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+source.backgroundtransparency = 1.000
+source.position = udim2.new(0, 30, 0, 0)
+source.size = udim2.new(0.945652187, 0, 1, 0)
+source.zindex = 3
+source.cleartextonfocus = false
+source.font = enum.font.code
+source.multiline = true
+source.placeholdercolor3 = color3.fromrgb(204, 204, 204)
+source.text = ""
+source.textcolor3 = color3.fromrgb(204, 204, 204)
+source.textsize = 15.000
+source.textxalignment = enum.textxalignment.left
+source.textyalignment = enum.textyalignment.top
+
+comments_.name = "comments_"
+comments_.parent = source
+comments_.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+comments_.backgroundtransparency = 1.000
+comments_.size = udim2.new(1, 0, 1, 0)
+comments_.zindex = 5
+comments_.font = enum.font.code
+comments_.text = ""
+comments_.textcolor3 = color3.fromrgb(59, 200, 59)
+comments_.textsize = 15.000
+comments_.textxalignment = enum.textxalignment.left
+comments_.textyalignment = enum.textyalignment.top
+
+globals_.name = "globals_"
+globals_.parent = source
+globals_.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+globals_.backgroundtransparency = 1.000
+globals_.size = udim2.new(1, 0, 1, 0)
+globals_.zindex = 5
+globals_.font = enum.font.code
+globals_.text = ""
+globals_.textcolor3 = color3.fromrgb(132, 214, 247)
+globals_.textsize = 15.000
+globals_.textxalignment = enum.textxalignment.left
+globals_.textyalignment = enum.textyalignment.top
+
+keywords_.name = "keywords_"
+keywords_.parent = source
+keywords_.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+keywords_.backgroundtransparency = 1.000
+keywords_.size = udim2.new(1, 0, 1, 0)
+keywords_.zindex = 5
+keywords_.font = enum.font.code
+keywords_.text = ""
+keywords_.textcolor3 = color3.fromrgb(248, 109, 124)
+keywords_.textsize = 15.000
+keywords_.textxalignment = enum.textxalignment.left
+keywords_.textyalignment = enum.textyalignment.top
+
+remotehighlight_.name = "remotehighlight_"
+remotehighlight_.parent = source
+remotehighlight_.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+remotehighlight_.backgroundtransparency = 1.000
+remotehighlight_.size = udim2.new(1, 0, 1, 0)
+remotehighlight_.zindex = 5
+remotehighlight_.font = enum.font.code
+remotehighlight_.text = ""
+remotehighlight_.textcolor3 = color3.fromrgb(0, 144, 255)
+remotehighlight_.textsize = 15.000
+remotehighlight_.textxalignment = enum.textxalignment.left
+remotehighlight_.textyalignment = enum.textyalignment.top
+
+strings_.name = "strings_"
+strings_.parent = source
+strings_.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+strings_.backgroundtransparency = 1.000
+strings_.size = udim2.new(1, 0, 1, 0)
+strings_.zindex = 5
+strings_.font = enum.font.code
+strings_.text = ""
+strings_.textcolor3 = color3.fromrgb(173, 241, 149)
+strings_.textsize = 15.000
+strings_.textxalignment = enum.textxalignment.left
+strings_.textyalignment = enum.textyalignment.top
+
+tokens_.name = "tokens_"
+tokens_.parent = source
+tokens_.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+tokens_.backgroundtransparency = 1.000
+tokens_.size = udim2.new(1, 0, 1, 0)
+tokens_.zindex = 5
+tokens_.font = enum.font.code
+tokens_.text = ""
+tokens_.textcolor3 = color3.fromrgb(255, 255, 255)
+tokens_.textsize = 15.000
+tokens_.textxalignment = enum.textxalignment.left
+tokens_.textyalignment = enum.textyalignment.top
+
+numbers_.name = "numbers_"
+numbers_.parent = source
+numbers_.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+numbers_.backgroundtransparency = 1.000
+numbers_.size = udim2.new(1, 0, 1, 0)
+numbers_.zindex = 4
+numbers_.font = enum.font.code
+numbers_.text = ""
+numbers_.textcolor3 = color3.fromrgb(255, 198, 0)
+numbers_.textsize = 15.000
+numbers_.textxalignment = enum.textxalignment.left
+numbers_.textyalignment = enum.textyalignment.top
+
+lines.name = "lines"
+lines.parent = editorframe
+lines.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+lines.backgroundtransparency = 1.000
+lines.size = udim2.new(0, 30, 1, 0)
+lines.zindex = 4
+lines.font = enum.font.code
+lines.text = "1"
+lines.textcolor3 = color3.fromrgb(255, 255, 255)
+lines.textsize = 15.000
+lines.textyalignment = enum.textyalignment.top
+
+title.name = "title"
+title.parent = mainframe
+title.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+title.backgroundtransparency = 1.000
+title.position = udim2.new(0.330062926, 0, 0.00625000056, 0)
+title.size = udim2.new(0, 200, 0, 22)
+title.font = enum.font.sourcesans
+title.text = "synapse x remake - rbx"
+title.textcolor3 = color3.fromrgb(255, 255, 255)
+title.textsize = 16.000
+
+list.name = "list"
+list.parent = mainframe
+list.backgroundcolor3 = color3.fromrgb(53, 53, 53)
+list.bordersizepixel = 0
+list.position = udim2.new(0.820970535, 0, 0.100000001, 0)
+list.size = udim2.new(0, 114, 0, 246)
+
+execute.name = "execute"
+execute.parent = mainframe
+execute.backgroundcolor3 = color3.fromrgb(104, 104, 104)
+execute.backgroundtransparency = 0.800
+execute.bordersizepixel = 0
+execute.position = udim2.new(0.0095389355, 0, 0.887499988, 0)
+execute.size = udim2.new(0, 92, 0, 30)
+execute.font = enum.font.arial
+execute.text = "execute"
+execute.textcolor3 = color3.fromrgb(255, 255, 255)
+execute.textsize = 14.000
+execute.mousebutton1click:connect(function()
+    if injected == true then
+        loadstring(source.text)()
+    end
+    if injected == false then
+        title.text = "synapse x remake  - rbx (not injected! press attach)"
+    end
+end)
+
+clear.name = "clear"
+clear.parent = mainframe
+clear.backgroundcolor3 = color3.fromrgb(104, 104, 104)
+clear.backgroundtransparency = 0.800
+clear.bordersizepixel = 0
+clear.position = udim2.new(0.154146105, 0, 0.887499988, 0)
+clear.size = udim2.new(0, 84, 0, 30)
+clear.font = enum.font.arial
+clear.text = "clear"
+clear.textcolor3 = color3.fromrgb(255, 255, 255)
+clear.textsize = 14.000
+clear.mousebutton1click:connect(function()
+    source.text = ""
+end)
+
+scripthub.name = "scripthub"
+scripthub.parent = mainframe
+scripthub.backgroundcolor3 = color3.fromrgb(104, 104, 104)
+scripthub.backgroundtransparency = 0.800
+scripthub.bordersizepixel = 0
+scripthub.position = udim2.new(0.871768773, 0, 0.887499988, 0)
+scripthub.size = udim2.new(0, 79, 0, 30)
+scripthub.font = enum.font.arial
+scripthub.text = "script hub"
+scripthub.textcolor3 = color3.fromrgb(255, 255, 255)
+scripthub.textsize = 14.000
+scripthub.mousebutton1click:connect(function()
+    scripthub_2.visible = true
+end)
+
+attach.name = "attach"
+attach.parent = mainframe
+attach.backgroundcolor3 = color3.fromrgb(104, 104, 104)
+attach.backgroundtransparency = 0.800
+attach.bordersizepixel = 0
+attach.position = udim2.new(0.741144657, 0, 0.887499988, 0)
+attach.size = udim2.new(0, 84, 0, 30)
+attach.font = enum.font.arial
+attach.text = "attach"
+attach.textcolor3 = color3.fromrgb(255, 255, 255)
+attach.textsize = 14.000
+attach.mousebutton1click:connect(function()
+    print("hi")
+    if injected == true then
+        title.text = "synapse x remake - rbx (already injected!)"
+        wait(1)
+        title.text = "synapse remake x - rbx"
+    end
+    if injected == false then
+        title.text = "synapse x remake - rbx (checking...)"
+        wait(0.1)
+        title.text = "synapse x remake - rbx (injecting...)"
+        wait(1.5)
+        title.text = "synapse x remake - rbx (checking whitelist...)"
+        wait(0.8)
+        title.text = "synapse x remake - rbx (scanning...)"
+        wait(0.3)
+        title.text = "synapse x remake - rbx (ready!)"
+        wait(0.5)
+        title.text = "synapse x remake - rbx"
+        injected = true
+    end
+end)
+
+title_2.name = "title"
+title_2.parent = mainframe
+title_2.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+title_2.backgroundtransparency = 1.000
+title_2.position = udim2.new(0.00870821718, 0, 0, 0)
+title_2.size = udim2.new(0, 18, 0, 24)
+title_2.zindex = 14
+title_2.image = "http://www.roblox.com/asset/?id=7641125882"
+title_2.imagerectsize = vector2.new(138, 167)
+
+scripthub_2.name = "scripthub"
+scripthub_2.parent = synapsexreal
+scripthub_2.backgroundcolor3 = color3.fromrgb(45, 45, 45)
+scripthub_2.bordersizepixel = 0
+scripthub_2.position = udim2.new(0.433135211, 0, 0.502979755, 0)
+scripthub_2.size = udim2.new(0, 290, 0, 305)
+scripthub_2.visible = false
+scripthub_2.zindex = 100
+
+bar_2.name = "bar"
+bar_2.parent = scripthub_2
+bar_2.backgroundcolor3 = color3.fromrgb(94, 94, 94)
+bar_2.backgroundtransparency = 0.800
+bar_2.bordersizepixel = 0
+bar_2.position = udim2.new(0, 0, -0.0029638072, 0)
+bar_2.size = udim2.new(0, 290, 0, 25)
+
+select.name = "select"
+select.parent = scripthub_2
+select.backgroundcolor3 = color3.fromrgb(21, 21, 21)
+select.bordersizepixel = 0
+select.position = udim2.new(0.0299979374, 0, 0.104918033, 0)
+select.size = udim2.new(0, 82, 0, 264)
+select.zindex = 110
+
+dex.name = "dex"
+dex.parent = select
+dex.backgroundcolor3 = color3.fromrgb(0, 32, 61)
+dex.backgroundtransparency = 1.000
+dex.bordercolor3 = color3.fromrgb(0, 0, 49)
+dex.bordersizepixel = 0
+dex.position = udim2.new(0.0121960752, 0, -1.49011612e-08, 0)
+dex.size = udim2.new(0, 80, 0, 18)
+dex.font = enum.font.sourcesans
+dex.text = " dark dex"
+dex.textcolor3 = color3.fromrgb(255, 255, 255)
+dex.textsize = 14.000
+dex.textxalignment = enum.textxalignment.left
+dex.zindex = 110
+dex.mousebutton1click:connect(function()
+    scriptselected = "dex"
+end)
+
+esp.name = "esp"
+esp.parent = select
+esp.backgroundcolor3 = color3.fromrgb(0, 32, 61)
+esp.backgroundtransparency = 1.000
+esp.bordercolor3 = color3.fromrgb(0, 0, 49)
+esp.bordersizepixel = 0
+esp.position = udim2.new(0.0121960752, 0, 0.0681818053, 0)
+esp.size = udim2.new(0, 80, 0, 18)
+esp.font = enum.font.sourcesans
+esp.text = " unnamed esp"
+esp.textcolor3 = color3.fromrgb(255, 255, 255)
+esp.textsize = 14.000
+esp.textxalignment = enum.textxalignment.left
+esp.zindex = 110
+esp.mousebutton1click:connect(function()
+    scriptselected = "esp"
+end)
+
+spy.name = "spy"
+spy.parent = select
+spy.backgroundcolor3 = color3.fromrgb(0, 32, 61)
+spy.backgroundtransparency = 1.000
+spy.bordercolor3 = color3.fromrgb(0, 0, 49)
+spy.bordersizepixel = 0
+spy.position = udim2.new(0.0121960752, 0, 0.136363626, 0)
+spy.size = udim2.new(0, 80, 0, 18)
+spy.font = enum.font.sourcesans
+spy.text = " remote spy"
+spy.textcolor3 = color3.fromrgb(255, 255, 255)
+spy.textsize = 14.000
+spy.textxalignment = enum.textxalignment.left
+spy.zindex = 110
+spy.mousebutton1click:connect(function()
+    scriptselected = "spy"
+end)
+
+dumper.name = "dumper"
+dumper.parent = select
+dumper.backgroundcolor3 = color3.fromrgb(0, 32, 61)
+dumper.backgroundtransparency = 1.000
+dumper.bordercolor3 = color3.fromrgb(0, 0, 49)
+dumper.bordersizepixel = 0
+dumper.position = udim2.new(0.0121960752, 0, 0.204545438, 0)
+dumper.size = udim2.new(0, 80, 0, 18)
+dumper.font = enum.font.sourcesans
+dumper.text = " saveinstance"
+dumper.textcolor3 = color3.fromrgb(255, 255, 255)
+dumper.textsize = 14.000
+dumper.textxalignment = enum.textxalignment.left
+dumper.zindex = 110
+dumper.mousebutton1click:connect(function()
+    scriptselected = "dumper"
+end)
+
+desc.name = "desc"
+desc.parent = scripthub_2
+desc.backgroundcolor3 = color3.fromrgb(21, 21, 21)
+desc.bordersizepixel = 0
+desc.position = udim2.new(0.340342641, 0, 0.613114715, 0)
+desc.size = udim2.new(0, 184, 0, 69)
+desc.zindex = 110
+
+descri.name = "descri"
+descri.parent = desc
+descri.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+descri.backgroundtransparency = 1.000
+descri.bordersizepixel = 0
+descri.position = udim2.new(0.0112334546, 0, 0, 0)
+descri.size = udim2.new(0, 181, 0, 69)
+descri.font = enum.font.sourcesans
+descri.text = ""
+descri.textcolor3 = color3.fromrgb(255, 255, 255)
+descri.textsize = 15.000
+descri.textwrapped = true
+descri.textxalignment = enum.textxalignment.left
+descri.textyalignment = enum.textyalignment.top
+descri.zindex = 125
+
+title_3.name = "title"
+title_3.parent = scripthub_2
+title_3.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+title_3.backgroundtransparency = 1.000
+title_3.position = udim2.new(0.161097407, 0, -0.000307376496, 0)
+title_3.size = udim2.new(0, 200, 0, 22)
+title_3.font = enum.font.sourcesans
+title_3.text = "synapse x remake - script hub"
+title_3.textcolor3 = color3.fromrgb(255, 255, 255)
+title_3.textsize = 16.000
+title_3.zindex = 110
+
+execute_2.name = "execute"
+execute_2.parent = scripthub_2
+execute_2.backgroundcolor3 = color3.fromrgb(104, 104, 104)
+execute_2.backgroundtransparency = 0.800
+execute_2.bordersizepixel = 0
+execute_2.position = udim2.new(0.34057343, 0, 0.871106505, 0)
+execute_2.size = udim2.new(0, 92, 0, 30)
+execute_2.font = enum.font.arial
+execute_2.text = "execute"
+execute_2.textcolor3 = color3.fromrgb(255, 255, 255)
+execute_2.textsize = 14.000
+execute_2.zindex = 110
+execute_2.mousebutton1click:connect(function()
+    if injected == true then
+        if scriptselected == "dex" then
+            loadstring(game:httpget("https://pastebin.com/raw/j8ax35fg"))()
+        end
+        if scriptselected == "spy" then
+            loadstring(game:httpget("https://pastebin.com/raw/u62htuwr"))()
+        end
+        if scriptselected == "dumper" then
+            saveinstance()
+        end
+        if scriptselected == "esp" then
+            loadstring(game:httpget("https://raw.githubusercontent.com/ic3w0lf22/unnamed-esp/master/unnamedesp.lua"))()
+        end
+        if scriptselected == "none" then
+        end
+    end
+    if injected == false then
+        execute_2.text = "not attached!"
+        wait(1)
+        execute_2.text = "execute"
+    end
+end)
+
+close.name = "close"
+close.parent = scripthub_2
+close.backgroundcolor3 = color3.fromrgb(104, 104, 104)
+close.backgroundtransparency = 0.800
+close.bordersizepixel = 0
+close.position = udim2.new(0.685180664, 0, 0.871106505, 0)
+close.size = udim2.new(0, 84, 0, 30)
+close.font = enum.font.arial
+close.text = "close"
+close.textcolor3 = color3.fromrgb(255, 255, 255)
+close.textsize = 14.000
+close.zindex = 110
+close.mousebutton1click:connect(function()
+    scriptselected = "none"
+    scripthub_2.visible = false
+end)
+
+title_4.name = "title"
+title_4.parent = scripthub_2
+title_4.backgroundcolor3 = color3.fromrgb(255, 255, 255)
+title_4.backgroundtransparency = 1.000
+title_4.position = udim2.new(0.00870821718, 0, 0, 0)
+title_4.size = udim2.new(0, 18, 0, 24)
+title_4.zindex = 110
+title_4.image = "http://www.roblox.com/asset/?id=7641125882"
+title_4.imagerectsize = vector2.new(138, 167)
+
+-- scripts:
+
+local function syhnk_fake_script() -- imagelabel.localscript 
+    local script = instance.new('localscript', imagelabel)
+    local lua_keywords = {"and", "break", "do", "else", "elseif", "end", "false", "for", "function", "goto", "if", "in", "local", "nil", "not", "or", "repeat", "return", "then", "true", "until", "while"}
+    local global_env = {"getrawmetatable", "game", "workspace", "script", "math", "string", "table", "print", "wait", "brickcolor", "color3", "next", "pairs", "ipairs", "select", "unpack", "instance", "vector2", "vector3", "cframe", "ray", "udim2", "enum", "assert", "error", "warn", "tick", "loadstring", "_g", "shared", "getfenv", "setfenv", "newproxy", "setmetatable", "getmetatable", "os", "debug", "pcall", "ypcall", "xpcall", "rawequal", "rawset", "rawget", "tonumber", "tostring", "type", "typeof", "_version", "coroutine", "delay", "require", "spawn", "loadlibrary", "settings", "stats", "time", "usersettings", "version", "axes", "colorsequence", "faces", "colorsequencekeypoint", "numberrange", "numbersequence", "numbersequencekeypoint", "gcinfo", "elapsedtime", "collectgarbage", "physicalproperties", "rect", "region3", "region3int16", "udim", "vector2int16", "vector3int16"}
+    local source = script.parent.editorframe.source
+    local lines = source.parent.lines
+    local highlight = function(string, keywords)
+        local k = {}
+        local s = string
+        local token =
+            {
+                ["="] = true,
+                ["."] = true,
+                [","] = true,
+                ["("] = true,
+                [")"] = true,
+                ["["] = true,
+                ["]"] = true,
+                ["{"] = true,
+                ["}"] = true,
+                [":"] = true,
+                ["*"] = true,
+                ["/"] = true,
+                ["+"] = true,
+                ["-"] = true,
+                ["%"] = true,
+                [";"] = true,
+                ["~"] = true
+            }
+        for i, v in pairs(keywords) do
+            k[v] = true
+        end
+        s = s:gsub(".", function(c)
+            if token[c] ~= nil then
+                return "\32"
+            else
+                return c
+            end
+        end)
+        s = s:gsub("%s+", function(c)
+            if k[c] ~= nil then
+                return c
+            else
+                return (" "):rep(#c)
+            end
+        end)
+        return s
+    end
+    local htokens = function(string)
+        local token =
+            {
+                ["="] = true,
+                ["."] = true,
+                [","] = true,
+                ["("] = true,
+                [")"] = true,
+                ["["] = true,
+                ["]"] = true,
+                ["{"] = true,
+                ["}"] = true,
+                [":"] = true,
+                ["*"] = true,
+                ["/"] = true,
+                ["+"] = true,
+                ["-"] = true,
+                ["%"] = true,
+                [";"] = true,
+                ["~"] = true
+            }
+        local a = ""
+        string:gsub(".", function(c)
+            if token[c] ~= nil then
+                a = a .. c
+            elseif c == "\n" then
+                a = a .. "\n"
+            elseif c == "\t" then
+                a = a .. "\t"
+            else
+                a = a .. "\32"
+            end
+        end)
+        return a
+    end
+
+    local strings = function(string)
+        local highlight = ""
+        local quote = false
+        string:gsub(".", function(c)
+            if quote == false and c == "\"" then
+                quote = true
+            elseif quote == true and c == "\"" then
+                quote = false
+            end
+            if quote == false and c == "\"" then
+                highlight = highlight .. "\""
+            elseif c == "\n" then
+                highlight = highlight .. "\n"
+            elseif c == "\t" then
+                highlight = highlight .. "\t"
+            elseif quote == true then
+                highlight = highlight .. c
+            elseif quote == false then
+                highlight = highlight .. "\32"
+            end
+        end)
+        return highlight
+    end
+    local comments = function(string)
+        local ret = ""
+        string:gsub("[^\r\n]+", function(c)
+            local comm = false
+            local i = 0
+            c:gsub(".", function(n)
+                i = i + 1
+                if c:sub(i, i + 1) == "--" then
+                    comm = true
+                end
+                if comm == true then
+                    ret = ret .. n
+                else
+                    ret = ret .. "\32"
+                end
+            end)
+            ret = ret
+        end)
+        return ret
+    end
+    local numbers = function(string)
+        local a = ""
+        string:gsub(".", function(c)
+            if tonumber(c) ~= nil then
+                a = a .. c
+            elseif c == "\n" then
+                a = a .. "\n"
+            elseif c == "\t" then
+                a = a .. "\t"
+            else
+                a = a .. "\32"
+            end
+        end)
+        return a
+    end
+    local highlight_source = function(type)
+        if type == "text" then
+            source.text = source.text:gsub("\13", "")
+            source.text = source.text:gsub("\t", "      ")
+            local s = source.text
+            source.keywords_.text = highlight(s, lua_keywords)
+            source.globals_.text = highlight(s, global_env)
+            source.remotehighlight_.text = highlight(s, {"fireserver", "fireserver", "invokeserver", "invokeserver"})
+            source.tokens_.text = htokens(s)
+            source.numbers_.text = numbers(s)
+            source.strings_.text = strings(s)
+            local lin = 1
+            s:gsub("\n", function()
+                lin = lin + 1
+            end)
+            lines.text = ""
+            for i = 1, lin do
+                lines.text = lines.text .. i .. "\n"
+            end
+        end
+    end
+    highlight_source("text")
+    source.changed:connect(highlight_source)
+end
+coroutine.wrap(syhnk_fake_script)()
+local function amna_fake_script() -- mainframe.dragging 
+    local script = instance.new('localscript', mainframe)
+
+    local userinputservice = game:getservice("userinputservice")
+
+    local gui = script.parent
+
+    local dragging
+    local draginput
+    local dragstart
+    local startpos
+
+    local function update(input)
+        local delta = input.position - dragstart
+        gui.position = udim2.new(startpos.x.scale, startpos.x.offset + delta.x, startpos.y.scale, startpos.y.offset + delta.y)
+    end
+
+    gui.inputbegan:connect(function(input)
+        if input.userinputtype == enum.userinputtype.mousebutton1 or input.userinputtype == enum.userinputtype.touch then
+            dragging = true
+            dragstart = input.position
+            startpos = gui.position
+
+            input.changed:connect(function()
+                if input.userinputstate == enum.userinputstate.end then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+
+    gui.inputchanged:connect(function(input)
+        if input.userinputtype == enum.userinputtype.mousemovement or input.userinputtype == enum.userinputtype.touch then
+            draginput = input
+        end
+    end)
+
+    userinputservice.inputchanged:connect(function(input)
+        if input == draginput and dragging then
+            update(input)
+        end
+    end)
+end
+coroutine.wrap(amna_fake_script)()
+local function veujfp_fake_script() -- scripthub_2.dragging 
+    local script = instance.new('localscript', scripthub_2)
+
+    local userinputservice = game:getservice("userinputservice")
+
+    local gui = script.parent
+
+    local dragging
+    local draginput
+    local dragstart
+    local startpos
+
+    local function update(input)
+        local delta = input.position - dragstart
+        gui.position = udim2.new(startpos.x.scale, startpos.x.offset + delta.x, startpos.y.scale, startpos.y.offset + delta.y)
+    end
+
+    gui.inputbegan:connect(function(input)
+        if input.userinputtype == enum.userinputtype.mousebutton1 or input.userinputtype == enum.userinputtype.touch then
+            dragging = true
+            dragstart = input.position
+            startpos = gui.position
+
+            input.changed:connect(function()
+                if input.userinputstate == enum.userinputstate.end then
+                    dragging = false
+                end
+            end)
+        end
+    end)
+
+    gui.inputchanged:connect(function(input)
+        if input.userinputtype == enum.userinputtype.mousemovement or input.userinputtype == enum.userinputtype.touch then
+            draginput = input
+        end
+    end)
+
+    userinputservice.inputchanged:connect(function(input)
+        if input == draginput and dragging then
+            update(input)
+        end
+    end)
+end
+coroutine.wrap(veujfp_fake_script)()
+while true do
+    wait(0.01)
+    if scripthub_2.visible == true then
+        if scriptselected == "none" then
+            descri.text = ""
+        end
+        if scriptselected == "dex" then
+            descri.text = "a version of the popular dex explorer with patches specifically for synapse x remake."
+        end
+        if scriptselected == "esp" then
+            descri.text = "esp made by ic3w0lf using the drawing api."
+        end
+        if scriptselected == "spy" then
+            descri.text = "allows you to view remoteevents and remotefunctions called."
+        end
+        if scriptselected == "dumper" then
+            descri.text = "dumps the place as a .rbxl file in your workspace folder."
+        end
+    end
+end
