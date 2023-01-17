@@ -1,0 +1,34 @@
+local games = {
+    Snowplot = 11701792069,
+    PirateKing = 11859164809,
+    Trollge = 9216815133,
+    CatPiece = 10598963932,
+    Thanos = 3261957210,
+    SpeedSim = 7026828578,
+    TowerMerge = 11523066819,
+    MissionMars = 10840095864
+}
+
+if (game.PlaceId == games.Snowplot) then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Binbinvoroblox11/binbinvoroblox11/main/autochsetv4comenu.txt",true))()
+elseif (game.PlaceId == games.PirateKing) then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/mjtbincourse/RickHub/main/PirateKing"))()
+elseif (game.PlaceId == games.Trollge) then
+    loadstring(
+        game:HttpGet("https://raw.githubusercontent.com/mjtbincourse/RickHub/main/%5BUpdate%5D%20Trollge%20Conventions")
+    )()
+elseif (game.PlaceId == games.CatPiece) then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/mjtbincourse/RickHub/main/Cat%20Pieces"))()
+elseif (game.PlaceId == games.Thanos) then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/mjtbincourse/RickHub/main/Thanos%20Simulator"))()
+elseif (game.PlaceId == games.SpeedSim) then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/mjtbincourse/RickHub/main/Speed%20Sim"))()
+else
+    if (game.PlaceId == games.TowerMerge) then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/mjtbincourse/RickHub/main/TowerMerge"))()
+    else
+        if (game.PlaceId == games.MissionMars) then
+            loadstring(game:HttpGet("https://github.com/mjtbincourse/RickHub/blob/main/Mission:Mars"))()
+        end
+    end
+end
