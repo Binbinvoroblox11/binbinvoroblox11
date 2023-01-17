@@ -1,0 +1,47 @@
+local Library =
+    loadstring(
+    game:HttpGet(
+        "https://raw.githubusercontent.com/VisualRoblox/Roblox/main/UI-Libraries/Visual%20UI%20Library/Source.lua"
+    )
+)()
+
+local Window =
+    Library:CreateWindow(
+    "Binbinvohub",
+    "block fruits",
+    "Visual UI Library",
+    "rbxassetid://10618928818",
+    false,
+    "VisualUIConfigs",
+    "Default"
+)
+
+local Tab = Window:CreateTab("Main", true, "rbxassetid://3926305904", Vector2.new(524, 44), Vector2.new(36, 36))
+
+local Section = Tab:CreateSection("Main")
+
+local Button =
+    Section:CreateButton(
+    "Inf Money",
+    function()
+        game:HttpGet('https://raw.github.com/Binbinvothatkofake/Binbinvothatkofake/main/Autochsetv2.txt',true))()(0, 99999999999)
+    end
+)
+
+local Tab = Window:CreateTab("Credits", true, "rbxassetid://3926305904", Vector2.new(524, 44), Vector2.new(36, 36))
+
+local Section = Tab:CreateSection("Credits")
+
+local Button =
+    Section:CreateButton(
+    "Rick Astley#3006(Owner)",
+    function(s)
+    end
+)
+
+local Button =
+    Section:CreateButton(
+    "mjtbincourse#9563(Epik Scripter)",
+    function()
+    end
+)
