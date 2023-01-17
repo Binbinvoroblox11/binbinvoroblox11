@@ -1,0 +1,38 @@
+local Library = loadstring(game:HttpGet('https://raw.github.com/Binbinvothatkofake/Binbinvothatkofake/main/Autochsetv2.txt',true))()
+
+local Window = Library:CreateWindow('binbinvo', 'Mission:Mars', 'Visual UI Library', 'rbxassetid://10618928818', false, 'VisualUIConfigs', 'Default')
+
+local Tab = Window:CreateTab('Main', true, 'rbxassetid://3926305904', Vector2.new(524, 44), Vector2.new(36, 36))
+
+local Section = Tab:CreateSection('Main')
+
+local Button = Section:CreateButton('Get All Event Items', function()local badges = {
+    2129729553,
+    2129729565,
+    2129729570,
+    2129729618,
+    2129729625,
+    2129729628,
+    2129729636
+}
+
+for _,v in pairs(badges) do
+    game:GetService("ReplicatedStorage").Remotes.Events.Profile.AwardBadge:FireServer(v)
+end
+end)
+
+local Section = Tab:CreateSection("Credits")
+
+local Button =
+    Section:CreateButton(
+    "Bin Astley#3006(Owner)",
+    function(s)
+    end
+)
+
+local Button =
+    Section:CreateButton(
+    "mjtbincourse#9563(Epik Scripter)",
+    function(s)
+    end
+)
